@@ -29,6 +29,9 @@ app.get('/', (req, res) =>
     res.send(`Node&Express running on port ${PORT}`)
 );
 
+// Serving static files
+app.use(express.static('public/imgs'));
+
 // Telling Express server to listen on our communication port
 app.listen(PORT, () => 
     console.log(`Server running! PORT ${PORT}`)
