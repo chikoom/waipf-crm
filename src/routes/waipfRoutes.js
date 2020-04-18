@@ -1,3 +1,5 @@
+import {addNewSubscription} from '../controllers/waipfControllers'
+
 // Receive app from index and pass it to our route function
 const routes = (app) => {
 
@@ -12,9 +14,7 @@ const routes = (app) => {
             res.send("GET request seccessful")
         })
 
-        .post((req, res) => 
-        res.send("POST request seccessful"));
-
+        .post(addNewSubscription);
 
 
         app.route('/subscription/:subscriptionID')

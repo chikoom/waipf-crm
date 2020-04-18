@@ -9,11 +9,12 @@ export const SubscirptionSchema = new Schema({
         required: 'Please enter the company name'
     },
     description:{
-        type: String
+        type: String,
+        default: '',
     },
     subscriptionType:{
         type: Number,
-        required: 'Please choose the subscrition type'
+        default: 0
     },
     cost:{
         type: Number,
@@ -22,19 +23,23 @@ export const SubscirptionSchema = new Schema({
     },
     currency:{
         type: Number,
-        required: 'Please select the currency'
+        default: 0
     },
     paymentDate:{
         type: Date,
-        required: 'Please choose the payment date'
+        default: Date.now
     },
     billingCycle:{
         type: Number,
-        required: 'Please choose the billing cycle'
+        default: 0
     },
     autoRenew:{
         type: Boolean,
-        required: 'Please select if the billing is auto renewing'
+        default: 0
+    },
+    createdDate:{
+        type: Date,
+        default: Date.now
     }
     
 })
