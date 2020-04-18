@@ -1,4 +1,10 @@
-import {addNewSubscription} from '../controllers/waipfControllers'
+import {
+    addNewSubscription,
+    getSubscription,
+    getSubscriptionWithID,
+    updateSubscriptionWithID,
+    deleteSubscriptionWithID
+} from '../controllers/waipfControllers'
 
 // Receive app from index and pass it to our route function
 const routes = (app) => {
@@ -10,20 +16,19 @@ const routes = (app) => {
             console.log(`Request from ${req.originalUrl}`)
             console.log(`Request type ${req.method}`)
             next();
-        }, (req, res, next) => {
-            res.send("GET request seccessful")
-        })
+        }, getSubscription)
 
+        // Post endpoint
         .post(addNewSubscription);
 
 
         app.route('/subscription/:subscriptionID')
-
-        .put((req, res) => 
-        res.send("PUT request seccessful"))
-
-        .delete((req, res) => 
-        res.send("DELETE request seccessful"));
+        // Get specific contact
+        .get(getSubscriptionWithID)
+        // Updating specific contact
+        .put(updateSubscriptionWithID)
+        // Deleting specific contact
+        .delete(deleteSubscriptionWithID);
 }
 
 // Exporting our routes to be used in other places

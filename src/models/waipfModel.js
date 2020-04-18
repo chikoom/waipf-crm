@@ -37,7 +37,7 @@ export const SubscirptionSchema = new Schema({
         type: Boolean,
         default: 0
     },
-    createdDate:{
+    entryCreatedDate:{
         type: Date,
         default: Date.now
     }
